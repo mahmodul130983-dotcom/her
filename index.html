@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I loveeeeee youuuuu pakhiiiii💖</title>
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+background:#fff0f5;
+}
+
+/* ================= HEARTS ================= */
+.heart{
+position:absolute;
+font-size:22px;
+animation:fall 7s linear infinite;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);opacity:1;}
+100%{transform:translateY(110vh);opacity:0;}
+}
+
+/* ================= PAGE SYSTEM ================= */
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+text-align:center;
+z-index:2;
+}
+
+.page.active{
+display:flex;
+animation:fade .8s ease;
+}
+
+@keyframes fade{
+0%{opacity:0;transform:scale(.9);}
+100%{opacity:1;transform:scale(1);}
+}
+
+/* ================= LOCK ================= */
+#lock{
+background:linear-gradient(135deg,#ffe0ec,#fff5f7);
+}
+
+.title{
+font-size:34px;
+color:#ff4d88;
+font-weight:bold;
+}
+
+.sub{
+color:#777;
+margin:10px 0 20px;
+}
+
+.password{
+padding:14px;
+width:250px;
+border:none;
+border-radius:12px;
+text-align:center;
+font-size:16px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn{
+margin-top:15px;
+padding:12px 30px;
+border:none;
+border-radius:25px;
+background:#ff4d88;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* ================= SLIDE 1 ================= */
+#slide1{
+background:linear-gradient(135deg,#ffd6e8,#ffeef5);
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:25px;
+max-width:400px;
+width:90%;
+box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+.yes,.no{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+font-size:16px;
+cursor:pointer;
+}
+
+.yes{background:#ff4d88;color:white;}
+.no{background:#333;color:white;position:absolute;}
+
+/* ================= SLIDE 2 ================= */
+#slide2{
+background:linear-gradient(135deg,#ffcad4,#ffe5ec);
+}
+
+.gift-box{
+background:white;
+padding:25px;
+border-radius:25px;
+max-width:500px;
+width:90%;
+box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+.gift{
+font-size:60px;
+margin:10px;
+cursor:pointer;
+}
+
+.hidden{
+display:none;
+margin-top:10px;
+padding:10px;
+background:#fff0f5;
+border-radius:10px;
+}
+
+/* ================= SLIDE 3 ================= */
+#slide3{
+background:linear-gradient(135deg,#ffb7c5,#ffc8dd);
+}
+
+.memory img{
+width:110px;
+height:110px;
+object-fit:cover;
+border-radius:15px;
+margin:5px;
+}
+
+/* ================= MOTIVATION BOX ================= */
+.motivation-box{
+background:rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+padding:25px;
+border-radius:25px;
+max-width:500px;
+color:white;
+line-height:1.7;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+animation:pop .8s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(.8);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+/* ================= SMILE BOX ================= */
+.smile-box{
+background:white;
+padding:30px;
+border-radius:25px;
+max-width:450px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+animation:pop .8s ease;
+}
+
+.smile-emoji{
+font-size:55px;
+margin:15px 0;
+animation:bounce 1.2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.smile-text{
+font-size:16px;
+color:#444;
+line-height:1.6;
+}
+
+/* ================= FINAL ================= */
+#slide6{
+background:linear-gradient(135deg,#ff4d6d,#ffb3c1);
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOCK -->
+<div class="page active" id="lock">
+<div class="title">💖 Sumaiya 💖</div>
+<div class="sub">Enter Password</div>
+<input id="pass" class="password" type="password">
+<button class="btn" onclick="unlock()">Unlock</button>
+</div>
+
+<!-- SLIDE 1 -->
+<div class="page" id="slide1">
+<div class="box">
+<h2>💖 Will You Be Mine?</h2>
+<br>
+<button class="yes" onclick="go('slide1','slide2')">YES ❤️</button>
+<button class="no" id="noBtn">NO 😏</button>
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="page" id="slide2">
+<div class="gift-box">
+<h2>🎁 Gifts</h2>
+
+<div>
+<span class="gift" onclick="gift1()">🎁</span>
+<span class="gift" onclick="gift2()">🎀</span>
+</div>
+
+<div id="g1" class="hidden">You are special 💖</div>
+<div id="g2" class="hidden">I LOVE YOU ❤️</div>
+
+<button class="btn" onclick="go('slide2','slide3')">Next</button>
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="page" id="slide3">
+<h2>📸 Memories</h2>
+
+<div class="memory">
+<img src="images/1.jpg">
+<img src="images/2.jpg">
+<img src="images/3.jpg">
+</div>
+
+<button class="btn" onclick="go('slide3','slide4')">Next</button>
+</div>
+
+<!-- MOTIVATION -->
+<div class="page" id="slide4">
+<div class="motivation-box">
+
+<h2>🌟 Motivation</h2>
+<br>
+
+💖 You are strong and beautiful.<br>
+✨ Never give up on your dreams.<br>
+🌸 You shine even in dark times.<br>
+🦋 Your smile is powerful.<br>
+💫 You are enough.<br>
+🌷 Keep going always.<br>
+❤️ I believe in you.<br>
+🌙 Your future is bright.<br>
+💖 Stay kind & strong.<br>
+✨ I’m always with you.
+
+</div>
+
+<button class="btn" onclick="go('slide4','slide5')" style="margin-top:15px;">
+Next 😆
+</button>
+</div>
+
+<!-- SMILE -->
+<div class="page" id="slide5">
+
+<div class="smile-box">
+
+<h2>😆 Smile Please 😆</h2>
+
+<div class="smile-emoji">😁😂😍🥰✨</div>
+
+<p class="smile-text">
+Your smile is everything 💖<br><br>
+Please smile right now 😊<br><br>
+You look the most beautiful when you smile ✨
+</p>
+
+</div>
+
+<button class="btn" onclick="go('slide5','slide6')" style="margin-top:15px;">
+Last 💌
+</button>
+</div>
+
+<!-- FINAL -->
+<div class="page" id="slide6">
+<h1>❤️ I LOVE YOU ❤️</h1>
+<button class="btn" onclick="confetti()">Finish 🎉</button>
+</div>
+
+<script>
+
+/* PAGE SWITCH */
+function go(a,b){
+document.getElementById(a).classList.remove("active");
+document.getElementById(b).classList.add("active");
+}
+
+/* PASSWORD */
+function unlock(){
+let p=document.getElementById("pass").value;
+if(p==="Sumu💕u"){
+go('lock','slide1');
+}else{
+alert("Wrong Password 💔");
+}
+}
+
+/* GIFTS */
+function gift1(){document.getElementById("g1").style.display="block";}
+function gift2(){document.getElementById("g2").style.display="block";}
+
+/* NO BUTTON MOVE */
+let noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+noBtn.style.left=Math.random()*200+"px";
+noBtn.style.top=Math.random()*120+"px";
+});
+
+/* HEARTS */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML=["💖","💕","🌸","🦋","✨"][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+},400);
+
+/* CONFETTI */
+function confetti(){
+for(let i=0;i<120;i++){
+let c=document.createElement("div");
+c.innerHTML="🎉";
+c.style.position="absolute";
+c.style.left=Math.random()*100+"vw";
+c.style.top="-10vh";
+c.style.fontSize="20px";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+}
+
+</script>
+
+</body>
+</html>
